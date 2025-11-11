@@ -1,0 +1,21 @@
+{
+  "network": "chain1",
+  "chainId": "31337",
+  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "timestamp": "2025-11-11T16:45:01.163Z",
+  "contracts": {
+    "SourceToken": {
+      "address": "0x0B306BF915C4d645ff596e518fAf3F9669b97016",
+      "name": "Bridge Source Token",
+      "symbol": "BST",
+      "decimals": "18",
+      "initialSupply": "1000000"
+    },
+    "BridgeEthereum": {
+      "address": "0x959922bE3CAee4b8Cd9a407cc3ac1C251C2007B1",
+      "token": "0x0B306BF915C4d645ff596e518fAf3F9669b97016",
+      "minAmount": "100000000000000000",
+      "maxAmount": "10000000000000000000000"
+    }
+  }
+}

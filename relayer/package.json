@@ -1,0 +1,19 @@
+{
+  "name": "bridge-relayer",
+  "version": "1.0.0",
+  "description": "Off-chain relayer service for cross-chain bridge",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "ethers": "^6.15.0",
+    "dotenv": "^16.4.0",
+    "pino": "^9.5.0",
+    "pino-pretty": "^11.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

@@ -1,0 +1,57 @@
+{
+	"name": "cross-chain-starter",
+	"version": "1.0.0",
+	"description": "Cross-chain token bridge tutorial with Hardhat 3.x",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"node:chain1": "hardhat node --port 8545 --hostname 127.0.0.1",
+		"node:chain2": "hardhat node --port 8546 --hostname 127.0.0.1",
+		"compile": "hardhat compile",
+		"test": "hardhat test",
+		"test:unit": "hardhat test test/unit/**/*.test.js",
+		"test:integration": "hardhat test test/integration/**/*.test.js",
+		"test:coverage": "hardhat coverage",
+		"deploy:chain1": "hardhat run scripts/deploy/01-deploy-source-chain.js --network chain1",
+		"deploy:chain2": "hardhat run scripts/deploy/02-deploy-destination-chain.js --network chain2",
+		"deploy:all": "pnpm run deploy:chain1 && pnpm run deploy:chain2 && pnpm run configure",
+		"configure": "hardhat run scripts/deploy/03-configure-bridge.js",
+		"verify:deployment": "node scripts/management/verify-deployment.js",
+		"relayer:dev": "cd relayer && pnpm run dev",
+		"relayer:start": "cd relayer && pnpm start",
+		"monitor": "node monitoring/scripts/balance-monitor.js",
+		"health": "node monitoring/scripts/health-check.js",
+		"lint": "solhint 'contracts/**/*.sol' && eslint '**/*.js'",
+		"format": "prettier --write 'contracts/**/*.sol' 'scripts/**/*.js' 'test/**/*.js'",
+		"clean": "hardhat clean && rm -rf cache artifacts deployments/*.json"
+	},
+	"keywords": [
+		"blockchain",
+		"bridge",
+		"cross-chain",
+		"defi"
+	],
+	"engines": {
+		"node": ">=22.0.0",
+		"pnpm": ">=10.0.0"
+	},
+	"author": "",
+	"license": "MIT",
+	"devDependencies": {
+		"@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
+		"@nomicfoundation/hardhat-network-helpers": "^1.1.2",
+		"@nomicfoundation/hardhat-toolbox": "^6.1.0",
+		"@openzeppelin/contracts": "^5.4.0",
+		"eslint": "^9.39.1",
+		"hardhat": "^3.0.12",
+		"prettier": "^3.6.2",
+		"solhint": "^6.0.1"
+	},
+	"dependencies": {
+		"dotenv": "^17.2.3",
+		"ethers": "^6.15.0",
+		"pino": "^9.14.0",
+		"pino-pretty": "^11.3.0",
+		"winston": "^3.18.3"
+	}
+}

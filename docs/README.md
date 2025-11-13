@@ -37,6 +37,27 @@ Includes:
 
 ---
 
+### 3. [KNOWLEDGE-MAP-UPCOMING-PROJECTS.md](./KNOWLEDGE-MAP-UPCOMING-PROJECTS.md) 🆕
+**Map your bridge knowledge to real-world crypto projects**
+
+Covers 5 project types:
+- **On-ramp** (Fiat → Crypto) - Payment integration, KYC/AML
+- **Off-ramp** (Crypto → Fiat) - Banking APIs, compliance
+- **Stellar/Solana** (New chains) - Different VMs, same concepts
+- **ChainSwap** (Cross-chain swaps) - DEX + Bridge integration
+- **Virtual Card** (Crypto cards) - Real-time settlement, card networks
+
+For each project:
+- ✅ What knowledge transfers from your bridge
+- 🎓 What you need to learn
+- 📐 Complete architecture diagrams
+- 🔗 Learning resources
+- 💡 Suggested mini-projects
+
+**Best for:** Planning your next project, understanding skill gaps
+
+---
+
 ## 🎯 Which Document Should I Read?
 
 ```
@@ -45,10 +66,15 @@ Starting out?
     └─► Then keep QUICK-REFERENCE.md handy
 
 Preparing for interview?
-└─► Review both, focus on "Interview Talking Points"
+└─► Review DEEP-DIVE and QUICK-REFERENCE
+    └─► Focus on "Interview Talking Points"
 
 Debugging an issue?
 └─► Check QUICK-REFERENCE.md "Debugging Tips"
+
+Planning next project?
+└─► Read KNOWLEDGE-MAP-UPCOMING-PROJECTS.md
+    └─► See which project matches your goals
 
 Want to understand a specific concept?
 └─► Use CROSS-CHAIN-BRIDGE-DEEP-DIVE.md table of contents

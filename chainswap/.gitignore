@@ -1,0 +1,33 @@
+node_modules/
+.env
+*.log
+logs/
+
+# Hardhat
+cache/
+artifacts/
+typechain-types/
+
+# Deployments (remove this if you want to commit deployment addresses)
+deployments/*.json
+!deployments/.gitkeep
+
+# Coverage
+coverage/
+coverage.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+

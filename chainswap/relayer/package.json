@@ -1,0 +1,23 @@
+{
+  "name": "chainswap-relayer",
+  "version": "1.0.0",
+  "description": "Relayer service for ChainSwap cross-chain swaps",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "node src/test-handler.js"
+  },
+  "keywords": ["relayer", "chainswap", "cross-chain"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^5.7.2",
+    "dotenv": "^16.0.3",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
+

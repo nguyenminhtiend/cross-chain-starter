@@ -22,6 +22,7 @@ This document covers the fundamental concepts of how Ethereum works, from DEXes 
 **DEX = Decentralized Exchange**
 
 A currency exchange booth running on smart contracts with:
+
 - ❌ No company running it
 - ❌ No human traders
 - ✅ Just automated smart contracts
@@ -29,18 +30,22 @@ A currency exchange booth running on smart contracts with:
 ### CEX vs DEX Comparison
 
 **Centralized Exchange (Coinbase, Binance):**
+
 ```
 You → Give money to Coinbase → Coinbase holds it → You trust them
 ```
+
 - They control your funds
 - Requires account creation & identity verification
 - Can freeze your account
 - Vulnerable to hacks (Mt. Gox, FTX)
 
 **Decentralized Exchange (Uniswap):**
+
 ```
 You → Keep control of money → Smart contract swaps directly → Done
 ```
+
 - You always control your funds
 - No account needed
 - No one can freeze anything
@@ -49,6 +54,7 @@ You → Keep control of money → Smart contract swaps directly → Done
 ## Why ChainSwap Needs a DEX
 
 ### Without DEX Integration:
+
 ```
 Bridge creates wrappedUSDC
 ↓
@@ -63,6 +69,7 @@ User must manually:
 ```
 
 ### With DEX Integration:
+
 ```
 Bridge creates wrappedUSDC
 ↓
@@ -92,6 +99,7 @@ Anyone can add tokens → Earn fees
 ### 2. Automatic Pricing
 
 Uniswap uses a simple formula:
+
 ```
 Price = Amount of Token B / Amount of Token A
 
@@ -142,6 +150,7 @@ ETH/USDC Pool = One Smart Contract
 ```
 
 **Real Example - Ethereum Mainnet:**
+
 ```
 Contract Address: 0xB4e16d0168e52d35CaeCd2a687f0a9F3e4f2e4B2
 Location: Ethereum blockchain
@@ -237,6 +246,7 @@ Block #18,000,001:
 ```
 
 **Blocks contain:**
+
 - ✅ Transactions (what people DID)
 - ✅ Timestamps (when they did it)
 - ✅ Signatures (proof they authorized it)
@@ -261,6 +271,7 @@ Current State (Block #18,000,001):
 ```
 
 **State contains:**
+
 - ✅ All account balances RIGHT NOW
 - ✅ All contract storage RIGHT NOW
 - ✅ All smart contract code
@@ -376,14 +387,14 @@ Archive Node (Unpruned):
 
 ## Summary
 
-| Aspect | BLOCKS | STATE |
-|--------|--------|-------|
-| **Contains** | Transaction history | Current balances & storage |
-| **Smart Contracts** | No | Yes (code + storage) |
-| **Mutable** | No (immutable) | Yes (changes each block) |
-| **Size** | ~600 GB | ~200 GB |
-| **Query** | "What did Alice do?" | "What does Alice have?" |
-| **Example** | "Alice locked 100 tokens" | "Bridge has 1M locked" |
+| Aspect              | BLOCKS                    | STATE                      |
+| ------------------- | ------------------------- | -------------------------- |
+| **Contains**        | Transaction history       | Current balances & storage |
+| **Smart Contracts** | No                        | Yes (code + storage)       |
+| **Mutable**         | No (immutable)            | Yes (changes each block)   |
+| **Size**            | ~600 GB                   | ~200 GB                    |
+| **Query**           | "What did Alice do?"      | "What does Alice have?"    |
+| **Example**         | "Alice locked 100 tokens" | "Bridge has 1M locked"     |
 
 **Key Insight:** Blocks record what happened. State records what exists now.
 
@@ -435,6 +446,7 @@ Body: { method: "eth_sendRawTransaction", params: [signedTx] }
 ```
 
 **Mempool = Waiting Room:**
+
 ```
 Node's Mempool:
 ┌─────────────────────────────┐
@@ -466,6 +478,7 @@ Every 12 seconds (1 slot):
 ```
 
 **Selection is deterministic:**
+
 ```python
 current_slot = get_current_slot()  # Changes every 12 seconds
 epoch = current_slot // 32         # 32 slots = 1 epoch
@@ -475,6 +488,7 @@ proposer = select_proposer(epoch, current_slot, validator_list)
 ```
 
 **Key Points:**
+
 - ✅ Validator chosen BEFORE slot starts
 - ✅ One validator proposes block
 - ✅ ~350 other validators attest (verify)
@@ -487,26 +501,27 @@ proposer = select_proposer(epoch, current_slot, validator_list)
 
 ```javascript
 function validateTransaction(tx) {
-    // 1. Signature validation
-    recoveredAddress = ecrecover(tx.hash, tx.signature);
-    require(recoveredAddress === tx.from, "Invalid signature");
+  // 1. Signature validation
+  recoveredAddress = ecrecover(tx.hash, tx.signature);
+  require(recoveredAddress === tx.from, 'Invalid signature');
 
-    // 2. Nonce check (prevent replay)
-    currentNonce = state.getNonce(tx.from);
-    require(tx.nonce === currentNonce, "Invalid nonce");
+  // 2. Nonce check (prevent replay)
+  currentNonce = state.getNonce(tx.from);
+  require(tx.nonce === currentNonce, 'Invalid nonce');
 
-    // 3. Balance check
-    balance = state.getBalance(tx.from);
-    require(balance >= tx.value + gas_cost, "Insufficient funds");
+  // 3. Balance check
+  balance = state.getBalance(tx.from);
+  require(balance >= tx.value + gas_cost, 'Insufficient funds');
 
-    // 4. Gas limit check
-    require(tx.gasLimit <= BLOCK_GAS_LIMIT, "Gas too high");
+  // 4. Gas limit check
+  require(tx.gasLimit <= BLOCK_GAS_LIMIT, 'Gas too high');
 
-    return true;
+  return true;
 }
 ```
 
 **Validation happens twice:**
+
 ```
 Stage 1: When entering mempool
 ├── Node does basic validation
@@ -524,25 +539,27 @@ Stage 2: When including in block
 ```javascript
 // Validator builds block
 newBlock = {
-    number: 18000001,
-    timestamp: 1699900000,
-    parentHash: "0xabc123...",  // Hash of previous block
+  number: 18000001,
+  timestamp: 1699900000,
+  parentHash: '0xabc123...', // Hash of previous block
 
-    // These come AFTER execution:
-    stateRoot: "0x...",          // Hash of NEW state
-    transactionsRoot: "0x...",   // Hash of all transactions
-    receiptsRoot: "0x...",       // Hash of all receipts
+  // These come AFTER execution:
+  stateRoot: '0x...', // Hash of NEW state
+  transactionsRoot: '0x...', // Hash of all transactions
+  receiptsRoot: '0x...', // Hash of all receipts
 
-    transactions: [tx1, tx2, tx3, yourTx]
-}
+  transactions: [tx1, tx2, tx3, yourTx]
+};
 
 // Calculate block hash
-blockHash = keccak256(rlp.encode([
+blockHash = keccak256(
+  rlp.encode([
     parentHash,
     stateRoot,
-    transactionsRoot,
+    transactionsRoot
     // ... all header fields
-]));
+  ])
+);
 ```
 
 ## 6. Execution Order: State Then Block
@@ -627,7 +644,7 @@ await bridgeContract.lock(recipient, 100);
 **Function selector calculation:**
 
 ```javascript
-functionSignature = "lock(address,uint256)";
+functionSignature = 'lock(address,uint256)';
 hash = keccak256(functionSignature);
 // "0xe2bbb1580000000000000000..."
 
@@ -1046,6 +1063,7 @@ Finalization: ~12-15 minutes
 **Node 1 knows by:**
 
 ### 1. Listening to gossipsub topics
+
 ```python
 node1.subscribe("beacon_attestation")
 node1.subscribe("aggregated_attestation")
@@ -1056,6 +1074,7 @@ def on_message(topic, message):
 ```
 
 ### 2. Tracking stake locally
+
 ```python
 attestation_tracker = {
     "slot_123456": {
@@ -1071,6 +1090,7 @@ if tracker[slot][block]["total_stake"] >= THRESHOLD:
 ```
 
 ### 3. Fork choice rule (LMD-GHOST)
+
 ```python
 def get_canonical_block(slot):
     # Choose block with most stake
@@ -1118,14 +1138,14 @@ async def on_attestation_received(att):
 
 ## Summary Table
 
-| Question | Answer |
-|----------|--------|
-| **How does Node 1 broadcast?** | Gossipsub P2P (sends to ~50 peers) |
-| **How do others respond?** | Create & broadcast attestations |
-| **How does Node 1 wait?** | It doesn't! Async event listeners |
-| **How does Node 1 know consensus?** | Receives aggregated attestations |
-| **What if <2/3 agree?** | Block orphaned, not canonical |
-| **When is state committed?** | After finalization (~13 mins) |
+| Question                            | Answer                             |
+| ----------------------------------- | ---------------------------------- |
+| **How does Node 1 broadcast?**      | Gossipsub P2P (sends to ~50 peers) |
+| **How do others respond?**          | Create & broadcast attestations    |
+| **How does Node 1 wait?**           | It doesn't! Async event listeners  |
+| **How does Node 1 know consensus?** | Receives aggregated attestations   |
+| **What if <2/3 agree?**             | Block orphaned, not canonical      |
+| **When is state committed?**        | After finalization (~13 mins)      |
 
 ---
 
@@ -1175,4 +1195,3 @@ Block Finalized
 ---
 
 **This guide provides a comprehensive understanding of Ethereum's internal mechanics, from DEX integration to consensus mechanisms.**
-

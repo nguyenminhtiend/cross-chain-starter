@@ -5,9 +5,11 @@ This directory contains comprehensive documentation for the cross-chain bridge p
 ## 📚 Available Documents
 
 ### 1. [CROSS-CHAIN-BRIDGE-DEEP-DIVE.md](./CROSS-CHAIN-BRIDGE-DEEP-DIVE.md)
+
 **Complete deep-dive covering all concepts discussed**
 
 Topics covered:
+
 - Project readiness assessment
 - Nonce system and replay protection
 - Event-driven architecture
@@ -23,9 +25,11 @@ Topics covered:
 ---
 
 ### 2. [QUICK-REFERENCE.md](./QUICK-REFERENCE.md)
+
 **Fast lookup for core concepts and commands**
 
 Includes:
+
 - Architecture diagrams
 - Security patterns
 - Common commands
@@ -38,9 +42,11 @@ Includes:
 ---
 
 ### 3. [KNOWLEDGE-MAP-UPCOMING-PROJECTS.md](./KNOWLEDGE-MAP-UPCOMING-PROJECTS.md) 🆕
+
 **Map your bridge knowledge to real-world crypto projects**
 
 Covers 5 project types:
+
 - **On-ramp** (Fiat → Crypto) - Payment integration, KYC/AML
 - **Off-ramp** (Crypto → Fiat) - Banking APIs, compliance
 - **Stellar/Solana** (New chains) - Different VMs, same concepts
@@ -48,6 +54,7 @@ Covers 5 project types:
 - **Virtual Card** (Crypto cards) - Real-time settlement, card networks
 
 For each project:
+
 - ✅ What knowledge transfers from your bridge
 - 🎓 What you need to learn
 - 📐 Complete architecture diagrams
@@ -115,6 +122,7 @@ Want to understand a specific concept?
 ## 💡 Quick Start Reading Path
 
 **30-minute deep understanding:**
+
 ```
 1. QUICK-REFERENCE.md (5 min)
    └─► Get architecture overview
@@ -126,6 +134,7 @@ Want to understand a specific concept?
 ```
 
 **Interview preparation (1 hour):**
+
 ```
 1. Read both docs completely
 2. Review your actual code in:
@@ -137,6 +146,7 @@ Want to understand a specific concept?
 ```
 
 **Production readiness (ongoing):**
+
 ```
 1. Study "Production Considerations" section
 2. Research mentioned bridges:
@@ -153,16 +163,19 @@ Want to understand a specific concept?
 ## 🎓 Learning Resources
 
 ### Foundational
+
 - [Ethereum Yellow Paper](https://ethereum.github.io/yellowpaper/paper.pdf)
 - [Solidity Documentation](https://docs.soliditylang.org/)
 - [OpenZeppelin Learn](https://docs.openzeppelin.com/learn/)
 
 ### Bridge-Specific
+
 - [LayerZero Whitepaper](https://layerzero.network/pdf/LayerZero_Whitepaper_Release.pdf)
 - [Hop Protocol Docs](https://docs.hop.exchange/)
 - [Connext Docs](https://docs.connext.network/)
 
 ### Security
+
 - [Smart Contract Security Best Practices](https://consensys.github.io/smart-contract-best-practices/)
 - [DeFi Security Summit Videos](https://www.youtube.com/@DeFiSecuritySummit)
 - [Rekt News](https://rekt.news/) - Learn from exploits
@@ -185,6 +198,7 @@ Found an error or want to add more detail?
 Documentation created from a detailed conversation analyzing this cross-chain bridge project on November 12, 2025.
 
 Core topics emerged from questions about:
+
 - Nonce system mechanics
 - Event-driven architecture
 - Multiple relayer coordination
@@ -194,4 +208,3 @@ Core topics emerged from questions about:
 ---
 
 **Remember:** Understanding beats copying. Read the docs, then read your code, then build something new.
-

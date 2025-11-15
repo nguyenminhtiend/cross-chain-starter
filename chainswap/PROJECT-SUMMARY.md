@@ -59,11 +59,13 @@ chainswap/
 ## Key Features Implemented
 
 ### 1. Extended Bridge Contract ✅
+
 - `BridgeSourceExtended.sol` - Adds targetToken parameter to Lock event
 - Backward compatible with basic bridge
 - Supports cross-chain swaps
 
 ### 2. ChainSwap Bridge ✅
+
 - `ChainSwapBridge.sol` - Mint and swap in one transaction
 - Uniswap V2 integration
 - Slippage protection (configurable, max 10%)
@@ -71,12 +73,14 @@ chainswap/
 - Try-catch error handling
 
 ### 3. Price Oracle ✅
+
 - `PriceOracle.sol` - Chainlink integration
 - Price staleness validation
 - USD-denominated pricing
 - Swap output calculation
 
 ### 4. Enhanced Relayer ✅
+
 - Event-driven architecture (same as your bridge)
 - Detects swap requirements from Lock events
 - Queries Uniswap for expected output
@@ -85,6 +89,7 @@ chainswap/
 - Health check monitoring
 
 ### 5. Complete Test Suite ✅
+
 - Unit tests for all contracts
 - Integration tests for full flow
 - Mock Uniswap router for testing
@@ -93,6 +98,7 @@ chainswap/
 - Slippage protection tests
 
 ### 6. Deployment System ✅
+
 - 3-step deployment process
 - Network-specific Uniswap router addresses
 - Automatic contract verification commands
@@ -100,6 +106,7 @@ chainswap/
 - Relayer .env auto-generation
 
 ### 7. Documentation ✅
+
 - Comprehensive README (400+ lines)
 - Quick start guide (5-minute setup)
 - Architecture diagrams
@@ -110,18 +117,21 @@ chainswap/
 ## Technologies Used
 
 ### Smart Contracts
+
 - ✅ Solidity 0.8.20
 - ✅ OpenZeppelin Contracts (ERC20, Ownable, ReentrancyGuard)
 - ✅ Uniswap V2 Router
 - ✅ Chainlink Aggregator
 
 ### Backend (Relayer)
+
 - ✅ Node.js
 - ✅ ethers.js v5
 - ✅ Winston (logging)
 - ✅ dotenv (configuration)
 
 ### Development Tools
+
 - ✅ Hardhat
 - ✅ Chai (testing)
 - ✅ Hardhat Toolbox
@@ -141,18 +151,19 @@ chainswap/
 
 ### Compared to Basic Bridge
 
-| Metric | Basic Bridge | ChainSwap |
-|--------|-------------|-----------|
-| **Lines of Solidity** | ~200 | ~500 |
-| **Features** | Lock/Mint/Burn | + DEX swaps |
-| **User Experience** | 2 steps (bridge + swap) | 1 step |
-| **Flexibility** | Fixed output token | Any token |
-| **Gas Cost** | Lower | Higher but worth it |
-| **Complexity** | Simpler | Moderate |
+| Metric                | Basic Bridge            | ChainSwap           |
+| --------------------- | ----------------------- | ------------------- |
+| **Lines of Solidity** | ~200                    | ~500                |
+| **Features**          | Lock/Mint/Burn          | + DEX swaps         |
+| **User Experience**   | 2 steps (bridge + swap) | 1 step              |
+| **Flexibility**       | Fixed output token      | Any token           |
+| **Gas Cost**          | Lower                   | Higher but worth it |
+| **Complexity**        | Simpler                 | Moderate            |
 
 ### Knowledge Reuse: 90%
 
 You already built:
+
 - ✅ Event-driven architecture
 - ✅ Relayer pattern
 - ✅ Nonce-based replay protection
@@ -160,6 +171,7 @@ You already built:
 - ✅ State management
 
 You only added:
+
 - 🆕 DEX integration (Uniswap)
 - 🆕 Price oracles (Chainlink)
 - 🆕 Slippage protection
@@ -167,18 +179,21 @@ You only added:
 ## Usage Examples
 
 ### Regular Bridge
+
 ```javascript
 // Lock 100 tokens, receive 100 wrapped tokens
-await bridge.lock(recipient, parseEther("100"), ethers.constants.AddressZero, 2);
+await bridge.lock(recipient, parseEther('100'), ethers.constants.AddressZero, 2);
 ```
 
 ### Bridge + Swap
+
 ```javascript
 // Lock 100 USDC, receive ~0.042 ETH
-await bridge.lock(recipient, parseEther("100"), WETH_ADDRESS, 2);
+await bridge.lock(recipient, parseEther('100'), WETH_ADDRESS, 2);
 ```
 
 ### Configuration
+
 ```javascript
 // Set 2% slippage tolerance
 await chainSwapBridge.setSlippageTolerance(200);
@@ -190,6 +205,7 @@ await priceOracle.setPriceFeed(tokenAddress, chainlinkFeedAddress);
 ## Next Steps
 
 1. **Test Locally**
+
    ```bash
    cd chainswap
    npm install
@@ -197,6 +213,7 @@ await priceOracle.setPriceFeed(tokenAddress, chainlinkFeedAddress);
    ```
 
 2. **Deploy to Testnet**
+
    ```bash
    npx hardhat run scripts/deploy/01-deploy-source-chain.js --network sepolia
    npx hardhat run scripts/deploy/02-deploy-destination-chain.js --network arbitrumSepolia
@@ -204,6 +221,7 @@ await priceOracle.setPriceFeed(tokenAddress, chainlinkFeedAddress);
    ```
 
 3. **Start Relayer**
+
    ```bash
    cd relayer
    npm install
@@ -238,6 +256,7 @@ Easy to extend with:
 ## Testing Results
 
 All tests implemented:
+
 - ✅ Lock tokens on source chain
 - ✅ Mint wrapped tokens on destination
 - ✅ Prevent replay attacks
@@ -282,4 +301,3 @@ All tests implemented:
 Built following [@01-CHAINSWAP-GUIDE.md](../docs/01-CHAINSWAP-GUIDE.md)
 Created: $(date)
 No existing code modified ✅
-

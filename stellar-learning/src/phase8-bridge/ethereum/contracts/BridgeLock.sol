@@ -14,7 +14,7 @@ pragma solidity ^0.8.20;
  * - Request ID uniqueness
  */
 
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
 contract BridgeLock is ReentrancyGuard, AccessControl {
